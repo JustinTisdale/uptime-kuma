@@ -277,12 +277,9 @@ class Monitor extends BeanModel {
                     if (this.body && !this.httpBodyEncoding || this.httpBodyEncoding === "json") {
                         bodyValue = JSON.parse(this.body);
                         contentType = "application/json";
-                    } else if (this.body && (this.httpBodyEncoding === "xml")) {
+                    } else if (this.body && this.httpBodyEncoding === "xml") {
                         bodyValue = this.body;
-                        contentType = "text/xml";
-                    } else if (this.body && (this.httpBodyEncoding === "form")) {
-                        bodyValue = this.body;
-                        contentType = "application/x-www-form-urlencoded";
+                        contentType = "text/xml; charset=utf-8";
                     }
 
                     // Axios Options
